@@ -45,6 +45,7 @@ public class Main {
                         nb = c2.pd(sn);
                         answer = c2.compute(i, na, nb); // Run method for the application
                         System.out.println(values + " = " + answer);
+                        break;
                     }
                 }
 

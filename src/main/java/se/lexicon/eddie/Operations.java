@@ -26,19 +26,19 @@ public class Operations {
         return Double.parseDouble(a);
     }
 
-    public double addNumbers(double a, double b) {
+    public static double addNumbers(double a, double b) {
         return a + b;
     }
 
-    public double subNumbers(double a, double b) {
+    public static double subNumbers(double a, double b) {
         return a - b;
     }
 
-    public double multiplyNumbers(double a, double b) {
+    public static double multiplyNumbers(double a, double b) {
         return a * b;
     }
 
-    public double divNumbers(double a, double b) {
+    public static double divNumbers(double a, double b) {
         return a / b;
     }
 
