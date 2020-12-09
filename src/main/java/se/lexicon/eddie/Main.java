@@ -17,8 +17,6 @@ public class Main {
         String values, fn, sn;
         values = fn = sn = "";
         int sv, vl, i;
-        long cop;
-        cop = 0;
 
         Operations c2 = new Operations();    // INSTANTIATE an object
         c2.dispInfo();    // Display application usage information
