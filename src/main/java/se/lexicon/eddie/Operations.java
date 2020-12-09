@@ -56,7 +56,7 @@ public class Operations {
         return answer;
     }
 
-    public void dispInfo() {
+    public static void dispInfo() {
         String s = " Simple calculator program 		\n"
                 + "*** Usage example *** 		\n"
                 + "Addition: 		14.8+3.1	\n"
@@ -69,7 +69,7 @@ public class Operations {
         System.out.println(s);
     }
 
-    public void ei() {
+    public static void ei() {
         System.out.println("Enter calculating combination:");
     }
 
