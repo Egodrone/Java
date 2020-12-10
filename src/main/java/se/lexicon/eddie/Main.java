@@ -1,11 +1,8 @@
-/**
- * @name Simple Java Calculator
- * @author Eddie Chernyshov
- */
 package se.lexicon.eddie;
 
 
 import java.util.Scanner;
+
 
 
 public class Main {
@@ -19,8 +16,8 @@ public class Main {
         int sv, vl, i;
 
         Operations c2 = new Operations();    // INSTANTIATE an object
-        c2.dispInfo();    // Display application usage information
-        c2.ei();
+        Operations.dispInfo();    // Display application usage information
+        Operations.ei();
 
         Scanner scObj = new Scanner(System.in); // Create a Scanner object
 
@@ -47,7 +44,7 @@ public class Main {
                     }
                 }
 
-                c2.ei();
+                Operations.ei();
             } else {
                 if (!values.equals("done") && !values.equals("exit")) {
                     System.out.printf(values + " is invalid combination, Try again:");

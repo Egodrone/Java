@@ -4,6 +4,8 @@
  */
 package se.lexicon.eddie;
 
+
+
 public class Operations {
 
     public int evStr(String a) {
