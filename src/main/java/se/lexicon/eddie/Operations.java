@@ -5,6 +5,7 @@
 package se.lexicon.eddie;
 
 
+
 public class Operations {
 
     public  boolean isNumber(String str) {
