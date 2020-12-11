@@ -1,3 +1,7 @@
+/**
+ * @name Simple Java Calculator
+ * @author Eddie Chernyshov
+ */
 package se.lexicon.eddie;
 
 
@@ -6,51 +10,69 @@ import java.util.Scanner;
 
 
 public class Main {
-    protected static String mathArr[] = {"+", "-", "/", "*"};    // math operations array
 
     public static void main(String[] args) {
-        double na, nb, answer;
-        na = nb = answer = 0.0;
-        String values, fn, sn;
-        values = fn = sn = "";
-        int sv, vl, i;
+        Scanner scObj = new Scanner(System.in);
+        double number1, number2, answer;
+        String str1, str2;
+        str1 = str2 = "";
+        boolean checkStr1 = false;
+        boolean checkStr2 = false;
+        number1 = number2 = answer = 0.0;
+        boolean runProgram = true;
+        String operationType = "";
+        System.out.println("### Simple Calculator ###");
+        System.out.println("### Type exit at any time to close the program ###");
 
-        Operations c2 = new Operations();    // INSTANTIATE an object
-        Operations.dispInfo();    // Display application usage information
-        Operations.ei();
+        Operations additionalMethods = new Operations();
 
-        Scanner scObj = new Scanner(System.in); // Create a Scanner object
+        while(runProgram) {
+            System.out.printf("Enter the first number:");
+            str1 = scObj.next();
+            if(str1.equalsIgnoreCase("exit")) {
+                break;
+            }
+            checkStr1 = additionalMethods.isNumber(str1);
+            System.out.println("Enter an operation type:");
+            operationType = scObj.next();
+            if(operationType.equalsIgnoreCase("exit")) {
+                break;
+            }
+            System.out.println("Enter the second number:");
+            str2 = scObj.next();
+            if(str2.equalsIgnoreCase("exit")) {
+                break;
+            }
+            checkStr2 = additionalMethods.isNumber(str2);
 
-        while (!values.equals("done") && !values.equals("exit")) {
-            values = scObj.nextLine();  // Read user input
-            sv = c2.evStr(values);    // Find the place of the operator
-            vl = values.length();    // Length of the user input string
 
-            // check so there is values before and after operator
-            if (sv != -1 && (vl - 1) != sv) {
-                fn = values.substring(0, sv);        // Number before operator
-                sn = values.substring(sv + 1, vl);    // Number after the operator
-
-                // iterate over declared math operations
-                for (i = 0; i < mathArr.length; i++) {
-                    // accessing each element of the array and checking if math operation is in the user input
-                    sv = values.indexOf(mathArr[i]);
-                    if (sv != -1) {
-                        na = c2.pd(fn);    // passing the string and parsing to double
-                        nb = c2.pd(sn);
-                        answer = c2.compute(i, na, nb); // Run method for the application
-                        System.out.println(values + " = " + answer);
+            if(checkStr1 && checkStr2) {
+                System.out.println("Given values are numbers");
+                number1 = additionalMethods.strToNumber(str1);
+                number2 = additionalMethods.strToNumber(str2);
+                switch(operationType) {
+                    case ("+"):
+                        answer = additionalMethods.addNumbers(number1, number2);
                         break;
-                    }
+                    case ("-"):
+                        answer = additionalMethods.subNumbers(number1, number2);
+                        break;
+                    case ("*"):
+                        answer = additionalMethods.multiplyNumbers(number1, number2);
+                        break;
+                    case ("/"):
+                        answer = additionalMethods.divNumbers(number1, number2);
+                        break;
+                    default:
+                        System.out.println("Operation type is not valid");
                 }
-
-                Operations.ei();
-            } else {
-                if (!values.equals("done") && !values.equals("exit")) {
-                    System.out.printf(values + " is invalid combination, Try again:");
-                }
+                System.out.println("Result is: " + answer);
+            } else if(!checkStr1 || !checkStr2) {
+                System.out.println("Invalid numbers are given");
             }
 
+
+            //System.out.println("Result is: " + answer);
         }
 
         scObj.close();
